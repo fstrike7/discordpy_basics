@@ -6,7 +6,7 @@
 The main purpose of these scripts is making them with few external libraries, mainly using native python libraries, such as sqlite3, os, etc.
 
 For the moment, the repo consists of:
-- Cog's classes *(to make the project be loose coupling and avoid changes in many files)
+- Cog's classes *(to make the project be loose coupling and avoid changes in many files)*
 - SQL implementation
 
 I'll write a lot of comments ( using # ) on the scripts to make it easier to understand when editing them.
