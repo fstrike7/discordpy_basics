@@ -8,6 +8,7 @@ The main purpose of these scripts is making them with few external libraries, ma
 For the moment, the repo consists of:
 - Cog's classes *(to make the project be loose coupling and avoid changes in many files)*
 - SQL implementation
+- Economy System based on SQL Database
 
 I'll write a lot of comments ( using # ) on the scripts to make it easier to understand when editing them.
 
