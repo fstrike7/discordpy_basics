@@ -51,14 +51,12 @@ class SQL(commands.Cog):
         user_id = int(ctx.author.id)
         user_name = str(ctx.author)
         
-        SQL.execute(f'select User_ID from Users where Server_ID="{server_id}" and Server_Name="{server_name}" and User_ID="{user_id}"')
+        SQL.execute(f'select User_ID from Users where Server_ID="{server_id}" and User_ID="{user_id}"')
         check = SQL.fetchone()
         if not check: # This "if" statement, check if the user exist in the database, if it's return False, create a row for that user.
             SQL.execute('insert into Users(Server_ID, Server_Name, User_ID, User_Name) values(?,?,?,?)', (server_id, server_name, user_id, user_name))
             db.commit()
 
-        
-        await self.bot.process_commands(ctx)
     
     @commands.command(pass_context=True)
     #@commands.has_role("admin")          #  Uncomment to make the command only usable for admins, you can also change "admin" for the role(name) you want.
