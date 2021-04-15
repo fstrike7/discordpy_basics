@@ -1,7 +1,7 @@
 """
 Disclaimer:
 A simple Cog which allows admins to add/delete Items to a "shop list", assigning a price and and allowing to buy them,
-this list is simply a SQL DB conformed by an Item name and value, indepent in each server.
+this list is simply a SQL DB conformed by an Item name and value, independent of each server.
 You can make the list "global" by deleting "Server_Name" and "Server_ID" from every SQL.execute parameter.
 In this case, the Cog is directly connected with the Economy.py Cog, but not viceversa.
 """

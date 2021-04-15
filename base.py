@@ -4,12 +4,13 @@ import discord
 from discord.ext import commands
 from discord.utils import get
 from economy import Economy
-from shop import Shop
-from music import Musica
 
 #Import cogs
 
-from sql import SQL
+from sql import SQLite
+from shop import Shop
+from embed_format import Embed
+from poll import Poll
 
 # Setting a bot prefix
 
@@ -33,7 +34,7 @@ async def on_ready():
     for x in bot.guilds:
         print (x.name) # Return each name of servers where the bot is connected
         print('')
-    #await bot.change_presence(activity = discord.Activity(type=discord.ActivityType.watching, name="Github Test")) # Uncomment to get a "Watching..." status with name value as description
+    await bot.change_presence(activity = discord.Activity(type=discord.ActivityType.watching, name="100% lucha")) # Uncomment to get a "Watching..." status with name value as description
 
 @bot.event
 async def on_message(ctx):
@@ -42,15 +43,18 @@ async def on_message(ctx):
     if ctx.author == bot.user:
         return
     else:
-        print(ctx.author, ': ', ctx.content, ' | ', ctx.author.guild) # Just to have control of incoming messages on console
+        print(ctx.author, ': ', ctx.content, ' | ', ctx.author.guild, ' | ', ctx.created_at) # Just to have control of incoming messages on console
 
-    
     await bot.process_commands(ctx)
 
 #Defining cogs and running the bot
 bot.add_cog(Shop(bot))
-bot.add_cog(SQL(bot))
+bot.add_cog(SQLite(bot))
 bot.add_cog(Economy(bot))
+bot.add_cog(Embed(bot))
+bot.add_cog(Poll(bot))
+
+#Running the bot
 bot.run(TOKEN)
 
 """

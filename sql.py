@@ -4,17 +4,18 @@ import os # Import OS library
 
 from discord.ext import commands 
 
-class SQL(commands.Cog):
+class SQLite(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
+
+    
     
     @commands.Cog.listener()
     async def on_ready(self): # When Cog is connected
-
         DIR = os.path.dirname(__file__)
         db = sqlite3.connect(os.path.join(DIR, "Guilds.db"))
         SQL = db.cursor()
-
+        
         SQL.execute('create table if not exists Guilds('
                     '"Num" integer not null primary key autoincrement, '
                     '"Server_ID" integer, '
